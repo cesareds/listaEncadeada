@@ -3,7 +3,8 @@
 
 int main() {
     int opcao=0, valor, anterior;
-    No *lista = NULL;
+    Lista lista;
+    criarLista(&lista);
     do{
         printf("\n0-sair\n1-inserir no inicio\n2-inserir no final\n3-inserir no meio\n4-imprimir\n");
         scanf(" %i", &opcao);
