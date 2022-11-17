@@ -7,7 +7,7 @@
 #include "lista.h"
 void criarLista(Lista *lista){
     lista->primeiro=NULL;
-    lista->tamanho==0;
+    lista->tamanho=0;
 }
 void inserirNoInicio(Lista *lista, int num){
     No *novo = malloc(sizeof (No));
@@ -53,6 +53,31 @@ void inserirNoMeio(Lista *lista, int num, int ant){
             aux->proximo=novo;
         }else{
             novo->proximo=NULL;
+            lista->primeiro=novo;
+        }
+        lista->tamanho++;
+    } else{
+        printf("erro ao alocar memória\n");
+    }
+}
+void inserirOrdenado(Lista *lista, int num){
+    No *aux, *novo = malloc(sizeof (No));
+    if(novo){
+        novo->valor=num;
+        novo->proximo=NULL;
+        if(lista->primeiro){
+            if(novo->valor < lista->primeiro->valor){
+                novo->proximo=lista->primeiro;
+                lista->primeiro=novo;
+            } else{
+                aux = lista->primeiro;
+                while(aux->proximo && novo->valor>aux->valor){
+                    aux=aux->proximo;
+                }
+                novo->proximo=aux->proximo;
+                aux->proximo=novo;
+            }
+        } else{
             lista->primeiro=novo;
         }
         lista->tamanho++;

@@ -16,6 +16,7 @@ void criarLista(Lista *lista);
 void inserirNoInicio(Lista *lista, int num);
 void inserirNoFinal(Lista *lista, int num);
 void inserirNoMeio(Lista *lista, int num, int ant);
+void inserirOrdenado(Lista *lista, int num);
 void imprimir(Lista lista);
 
 

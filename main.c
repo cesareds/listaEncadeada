@@ -6,7 +6,7 @@ int main() {
     Lista lista;
     criarLista(&lista);
     do{
-        printf("\n0-sair\n1-inserir no inicio\n2-inserir no final\n3-inserir no meio\n4-imprimir\n");
+        printf("\n0-sair\n1-inserir no inicio\n2-inserir no final\n3-inserir no meio\n4-inserir ordenado\n5-imprimir\n");
         scanf(" %i", &opcao);
         switch (opcao) {
             case 0:
@@ -30,12 +30,16 @@ int main() {
                 inserirNoMeio(&lista, valor, anterior);
                 break;
             case 4:
+                printf("\nInsira o valor a ser inserido ordenado:\n");
+                scanf(" %i", &valor);
+                inserirOrdenado(&lista, valor);
+                break;
+            case 5:
                 imprimir(lista);
                 break;
             default:
                 printf("\nopcao inválidan\n");
                 break;
-
         }
     }while(opcao!=0);
     return 0;
